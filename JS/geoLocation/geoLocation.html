@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>
+	Input Type
+</title>
+</head>
+<body>
+	Enter your details below to get information on nearby places: 
+	<form onSubmit="getUserLocation()">
+		Name: <input type="text" autofocus="true" placeholder="Enter your full name">
+		<br/>
+		Email: <input type="email" required="true" placeholder="gmail preferred">
+		<br/>
+		<input type="submit">
+	</form>
+	<button onclick="getUserLocation()">Get Location</button>
+	<p id="cordinates"></p>
+	<script>
+		function getUserLocation(){
+		    if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position){
+					cordinates.innerHTML = "Latitude: " + position.coords.latitude + 
+				    "<br>Longitude: " + position.coords.longitude; 
+				});				
+			}else{
+				alert("Your browser does not support location services");
+			}
+		}
+	</script>
+</body>
+</html>

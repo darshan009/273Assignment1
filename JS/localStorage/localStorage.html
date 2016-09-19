@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>
+	Local Storage
+</title>
+</head>
+<body>
+	Enter a new task for today below:<br/>
+	<input type="text" id="userInput">
+	<button onclick="addLocalStorage()">Add</button>
+	
+	
+	<script type="text/javascript">
+		function addLocalStorage(){
+			
+			var userInput = document.getElementById("userInput").value;
+			//add to local storage
+ 			localStorage.setItem("toDo", userInput);
+			document.getElementById("output").innerHTML = localStorage.getItem("toDo");
+		}
+	</script>
+	
+	<h4>Your to do for today is:</h4>
+	<p id="output"></p>
+</body>
+</html>
